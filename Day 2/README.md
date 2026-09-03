@@ -1,64 +1,31 @@
-## Learning Objectives:
-Master Dart language basics
-Understand Dart syntax
-Learn object-oriented programming in Dart
-Practice async programming
-## YouTube Search Terms:
-"Dart programming complete course"
-"Dart for beginners"
-"Dart OOP tutorial"
-"Dart async await tutorial"
-"Dart null safety explained"
-## Recommended Channels:
-Vandad Nahavandipoor
-Reso Coder
-The Net Ninja
-Flutter Official
-## Tasks:
-Watch: Dart programming fundamentals (3-4 hours)
-Read official docs: https://dart.dev/guides
-## Learn Dart basics:
-Variables (var, final, const)
-Data types (int, double, String, bool, List, Map)
-Operators (arithmetic, comparison, logical)
-Conditionals (if/else, switch)
-Loops (for, while, forEach)
-Functions (parameters, return types, arrow functions)
-Master Dart collections:
-Lists (arrays)
-Sets (unique values)
-Maps (key-value pairs)
-List methods (add, remove, map, where, reduce)
-Spread operator (...)
-Collection if and for
-## Learn OOP in Dart:
-Classes and objects
-Constructors (default, named, factory)
-Properties and methods
-Getters and setters
-Inheritance and extends
-Abstract classes and interfaces
-Mixins
-## Understand null safety:
-Nullable types (String?)
-Non-nullable types (String)
-Null-aware operators (?., ??, !)
-Late keyword
-Required keyword
-Learn async programming:
-Future and async/await
-Handling async operations
-Error handling with try-catch
-Stream basics
-## Practice Dart:
-Create 20+ Dart programs covering all concepts
-Build calculator, todo list logic
-Practice list manipulations
-Async API call simulation
-## Deliverables:
-Dart programs repository
-20+ Dart files demonstrating concepts
-OOP examples with classes
-Async/await examples
-Null safety examples
-README explaining Dart concepts learned
+# Day 2 – Dart Programming Fundamentals
+
+## What I did
+Wrote 23 Dart programs covering all core language concepts, from basics through async programming.
+
+## Concepts covered
+
+**Dart Basics** (files 01-07)
+Variables (var/final/const), data types, operators, conditionals, loops, functions, and arrow functions.
+
+**Collections** (files 08-11)
+Lists, Sets, Maps, list methods (map/where/reduce), spread operator, and collection if/for.
+
+**Object-Oriented Programming** (files 12-16)
+Constructors (default/named/factory), getters/setters, inheritance, abstract classes/interfaces, and mixins.
+
+**Null Safety** (files 17-18)
+Nullable vs non-nullable types, null-aware operators (?., ??, !), and the late/required keywords.
+
+**Async Programming** (files 19-21)
+Future/async-await, error handling with try-catch, a simulated async API call, and Stream basics.
+
+**Applied Practice** (files 22-23)
+A calculator class and a todo-list class combining multiple concepts.
+
+## Learning approach
+Prioritized hands-on coding over video tutorials for this task — worked directly from the 
+official docs (dart.dev/guides) and built working examples for each concept.
+
+## Files
+See `Day 2/dart programs/` for all 23 files.
