@@ -10,6 +10,10 @@
 - Ran the app on the emulator, tested hot reload and hot restart
 - Explored the project structure: `lib/main.dart`, `pubspec.yaml`, `android/` and `ios/` folders
 
+## Learning approach: 
+Prioritized hands-on setup and troubleshooting over video tutorials for  this task — worked directly from the official docs (docs.flutter.dev) and resolved issues 
+as they came up during setup.
+
 ## Issue faced
 Hit an "Error waiting for a debug connection: log reader stopped unexpectedly" error when running the app on the emulator. Resolved by fully cold-booting the emulator and confirming the ADB connection (`adb devices`) before running `flutter run`.
 
