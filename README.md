@@ -17,6 +17,8 @@ Hit an "Error waiting for a debug connection: log reader stopped unexpectedly" e
 - `flutter create first_app`
 - `flutter run`
 - `flutter doctor`
+- <img width="1495" height="527" alt="image" src="https://github.com/user-attachments/assets/6dab2060-e790-42e9-b508-dee46fcdf228" />
+
 - `flutter clean`
 - `adb devices`
 
