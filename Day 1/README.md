@@ -28,6 +28,8 @@ Hit an "Error waiting for a debug connection: log reader stopped unexpectedly" e
 
 - `flutter clean`
 - `adb devices`
+- <img width="1038" height="845" alt="Screenshot 2026-09-03 111301" src="https://github.com/user-attachments/assets/e1564f80-8370-4f1f-8943-b1e2548572c1" />
+
 
 ## Project location
 See `Day 1/first_app` for the working project.
