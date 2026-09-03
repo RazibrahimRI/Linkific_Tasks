@@ -18,6 +18,8 @@ Hit an "Error waiting for a debug connection: log reader stopped unexpectedly" e
 
 ## Flutter CLI commands used
 - `flutter create first_app`
+- <img width="1919" height="1022" alt="Screenshot 2026-09-03 131016" src="https://github.com/user-attachments/assets/a641af38-238c-4923-ad78-cc3e7c537fca" />
+
 - `flutter run`
 - <img width="1901" height="778" alt="image" src="https://github.com/user-attachments/assets/356f9ba2-1dbf-4806-a86b-e107b50f9756" />
 
