@@ -49,8 +49,8 @@ treating them as separate exercises.
 
 **GitHub commit history**
 
-![commits](<img width="1884" height="390" alt="image" src="https://github.com/user-attachments/assets/2e45c16e-930d-4a22-a547-31630098228a" />
-),
+<img width="1884" height="390" alt="image" src="https://github.com/user-attachments/assets/5ea4f7da-b002-4ca7-8df3-d894bdcefc11" />
+
 
 ## Files
 See `Day X/flutter_learning/` for the full project (`lib/main.dart`, 
