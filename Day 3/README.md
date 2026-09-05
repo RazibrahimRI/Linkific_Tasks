@@ -40,7 +40,10 @@ treating them as separate exercises.
 
 | Profile Screen | Form Screen | List Screen |
 |---|---|---|
-| ![profile](screenshots/profile_screen.png) | ![form](screenshots/form_screen.png) | ![list](screenshots/list_screen.png) |
+| ![profile](<img width="406" height="877" alt="image" src="https://github.com/user-attachments/assets/b579507e-7094-4a8f-80a6-ac7993bf07dd" />
+) | ![form](<img width="408" height="878" alt="image" src="https://github.com/user-attachments/assets/28ef2b9a-9d6e-4587-8728-92d8092f6d10" />
+) | ![list](<img width="410" height="874" alt="image" src="https://github.com/user-attachments/assets/87d63dcd-ff0a-4daf-abdd-399b408df121" />
+) |
 
 **GitHub commit history**
 
