@@ -1,4 +1,4 @@
-# Day X – Flutter & Git Fundamentals
+# Day 3 – Flutter & Git Fundamentals
 
 ## What I did
 Set up Git version control for a Flutter project and built a 3-screen practice 
