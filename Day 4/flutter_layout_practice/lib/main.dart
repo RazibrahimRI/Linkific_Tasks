@@ -4,6 +4,7 @@ import 'screens/whatsapp_chatUI.dart';
 import 'screens/ecommerce_grid.dart';
 import 'screens/settings_page.dart';
 import 'screens/stack_demo.dart';
+import 'screens/flex_demo.dart';
 
 
 void main() {
@@ -50,6 +51,10 @@ class HomeScreen extends StatelessWidget {
           ListTile(
             title: const Text('Stacks'),
             onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => StackDemo())),
+          ),
+          ListTile(
+            title: const Text('Flex'),
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => FlexDemo())),
           ),
         ],
       ),
