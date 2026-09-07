@@ -1,6 +1,30 @@
 # Day 4 - Flutter Layout Practice
 
-A single Flutter app demonstrating core layout widgets through 5 practice UIs.
+# What I did
+
+Built a 5-screen Flutter practice app covering core layout widgets, from constraints through complex responsive UIs, and pushed it to GitHub under the Linkific Tasks repo (Day 4).
+
+## Concepts covered
+
+**Git Version Control** — Moved the project into the existing "Linkific Tasks" repo under a Day 4 folder, staged and committed changes with descriptive messages, and pushed to GitHub.
+
+**Widget Tree & Constraints** — Practiced how Flutter widgets pass constraints down and sizes back up, and how `Row`/`Column` distribute space among children.
+
+**StatelessWidget** — All 5 screens built as StatelessWidget, since none required dynamic state — content is static per screen.
+
+**Core & Layout Widgets** — Applied `MaterialApp`/`Scaffold`, `AppBar`, `Row`/`Column`, `Padding`, `Expanded`, `SafeArea`, `CircleAvatar`, and `Image.network` across the screens.
+
+**ListView.builder** — Built a WhatsApp-style chat screen rendering 100+ messages efficiently, using `itemBuilder` instead of hardcoding widgets, to avoid building all items at once.
+
+**GridView.builder** — Built a responsive e-commerce product grid using `SliverGridDelegateWithFixedCrossAxisCount`.
+
+**Stack & Positioned** — Built a layered UI (avatar with badge overlay) to practice absolute positioning within a bounded area.
+
+**Navigation** — Implemented `Navigator.push`/`MaterialPageRoute` from a home menu screen to each of the 5 practice screens.
+
+## Learning approach
+
+Followed the assigned plan: layout fundamentals and constraints → Row/Column → Expanded/Flexible → Stack → ListView → GridView → applied each concept directly into a working screen rather than isolated exercises. Debugged real errors along the way — including a `Navigator` context scoping issue (calling `Navigator.push` with a context above the Navigator in the widget tree) — which clarified how `BuildContext` and widget tree position actually work.
 
 ## Screens
 
