@@ -32,10 +32,10 @@ Followed the assigned plan: layout fundamentals and constraints → Row/Column �
 <img width="305" height="670" alt="image" src="https://github.com/user-attachments/assets/ab06287d-684d-4b75-a669-cde8bdd0d496" />
 
 2. **WhatsApp Chat** — ListView.builder (100+ items) and ListView.separated
-<img width="307" height="673" alt="image" src="https://github.com/user-attachments/assets/f0b903e3-290f-4607-91dc-7aaed0e29d74" />
+<img width="343" height="754" alt="image" src="https://github.com/user-attachments/assets/dc7cf5ed-a86f-4ae4-9d35-5210dc9bf56a" />
 
 3. **E-commerce Product Grid** — GridView.builder and GridView.count
-<img width="300" height="666" alt="image" src="https://github.com/user-attachments/assets/8c5cb8e2-bb65-4885-a20d-f133e4c75776" />
+<img width="342" height="756" alt="image" src="https://github.com/user-attachments/assets/0ce65acd-bec9-49e9-aeb5-e7e41c751134" />
 
 4. **Settings Page** — ListView with ListTile, grouped items
 <img width="300" height="660" alt="image" src="https://github.com/user-attachments/assets/1baec8a8-12c3-421d-9c40-e606648ef67e" />
@@ -44,7 +44,7 @@ Followed the assigned plan: layout fundamentals and constraints → Row/Column �
 <img width="301" height="657" alt="image" src="https://github.com/user-attachments/assets/59da1d08-93ed-436b-8955-893a8fc7a975" />
 
 6. **Flex Demo** — Expanded vs Flexible, flex factors
-*(add screenshot link once uploaded)*
+<img width="344" height="749" alt="image" src="https://github.com/user-attachments/assets/4dd282f6-342b-4c7b-985d-e58c0e9b9934" />
 
 ## Widgets & Patterns
 
