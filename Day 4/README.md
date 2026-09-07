@@ -5,10 +5,24 @@ A single Flutter app demonstrating core layout widgets through 5 practice UIs.
 ## Screens
 
 1. **Instagram Post Card** — Row/Column, Expanded, nested layouts
+
+<img width="305" height="670" alt="image" src="https://github.com/user-attachments/assets/ab06287d-684d-4b75-a669-cde8bdd0d496" />
+
 2. **WhatsApp Chat** — ListView.builder with 100+ items (performance)
+
+<img width="307" height="673" alt="image" src="https://github.com/user-attachments/assets/f0b903e3-290f-4607-91dc-7aaed0e29d74" />
+
 3. **E-commerce Product Grid** — GridView.builder, responsive columns
+
+<img width="300" height="666" alt="image" src="https://github.com/user-attachments/assets/8c5cb8e2-bb65-4885-a20d-f133e4c75776" />
+
 4. **Settings Page** — ListView with ListTile, grouped items
+
+<img width="300" height="660" alt="image" src="https://github.com/user-attachments/assets/1baec8a8-12c3-421d-9c40-e606648ef67e" />
+
 5. **Stack Demo** — Stack, Positioned, layered UI elements
+
+<img width="301" height="657" alt="image" src="https://github.com/user-attachments/assets/59da1d08-93ed-436b-8955-893a8fc7a975" />
 
 ## Widgets & Patterns
 
