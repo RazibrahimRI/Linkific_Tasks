@@ -1,76 +1,221 @@
-# Day 5 - Material Design Showcase App
+# Day 5 - Flutter Material Design Showcase App
 
-A training exercise app built to practice Flutter's Material 3 widget catalog:
-buttons, cards/lists, dialogs, feedback widgets, forms, and navigation.
+## Overview
 
-## Material Design Concepts
+A Flutter Material 3 showcase application demonstrating Material Design
+widgets, buttons, cards, lists, dialogs, bottom sheets, SnackBars,
+Material Banners, forms, validation, and navigation.
 
-Material Design is Google's design system — it defines consistent components
-(buttons, cards, dialogs), spacing, elevation, and color rules so apps feel
-coherent without custom-designing every widget from scratch.
+## Learning Objectives
 
-## Material 3
+- Master Material Design widgets
+- Implement Material 3 components
+- Use buttons, cards, dialogs, and forms
+- Build beautiful Flutter UIs
+- Implement navigation between screens
+- Validate forms and handle user actions
 
-Material 3 is the current default in Flutter (`useMaterial3: true` is on by
-default in recent SDKs). It changes color roles (`ColorScheme.seed`),
-typography scale, and component shapes compared to the older Material 2 look.
+## Material 3 Concepts
 
-## Buttons
+The application demonstrates:
 
-- `ElevatedButton` — primary action, filled background (Login)
-- `TextButton` — low-emphasis action, no border/fill (secondary links)
-- `OutlinedButton` — medium-emphasis action, bordered (Register, Form submit)
-- `IconButton` — icon-only tap target (AppBar actions)
-- `FloatingActionButton` — primary screen action, floats above content
+- Material 3 theming
+- ThemeData
+- ColorScheme
+- MaterialApp
+- Scaffold
+- AppBar
+- Typography
+- Component styling
+- Cards and elevation
+- Material buttons
+- Input components
 
-## Cards and Lists
+## Screens
 
-- `Card` — elevated container for grouped content (stat cards on Dashboard)
-- `ListTile` — standard row layout with `leading`/`title`/`trailing`
-- `Divider` — thin separator line between list items
+### Login Screen
 
-## Dialogs
+- Email TextFormField
+- Password TextFormField
+- Form validation
+- ElevatedButton
+- TextButton
+- Navigation
 
-- `AlertDialog` — confirm/cancel a destructive action (delete project)
-- `SimpleDialog` — pick one option from a list (theme choice)
-- Custom `Dialog` — full control over layout when the two above don't fit
-- `BottomSheet` (via `showModalBottomSheet`) — slide-up action menu
+### Register Screen
 
-All dialogs are triggered through `showDialog()` / `showModalBottomSheet()`.
+- Name field
+- Email field
+- Password field
+- Confirm password field
+- Form validation
+- OutlinedButton
+- SnackBar feedback
 
-## SnackBars and Banner
+### Dashboard
 
-- `SnackBar` — brief confirmation after an action (form submit), with an
-  `UNDO` action button
-- `MaterialBanner` — persistent, dismissible message at the top of the
-  screen (shown once when Dashboard loads)
+- AppBar
+- Cards
+- ListTile
+- Leading
+- Trailing
+- Divider
+- IconButton
+- FloatingActionButton
+- MaterialBanner
+- Navigation
 
-## Forms and Validation
+### Form Screen
 
-- `TextField` — plain input, no validation (search box)
-- `TextFormField` — input tied to a `Form`, supports `validator`
-- `Form` + `GlobalKey<FormState>` — validates/resets all fields together
-- `InputDecoration` — labels, borders, icons, error text
+- TextField
+- TextFormField
+- Form
+- InputDecoration
+- Validation
+- SnackBar
+- SnackBar action
+
+## Material Widgets Implemented
+
+- MaterialApp
+- Scaffold
+- AppBar
+- ElevatedButton
+- TextButton
+- OutlinedButton
+- IconButton
+- FloatingActionButton
+- Card
+- ListTile
+- Divider
+- AlertDialog
+- SimpleDialog
+- Custom Dialog
+- BottomSheet
+- SnackBar
+- SnackBar Action
+- MaterialBanner
+- TextField
+- TextFormField
+- Form
+- InputDecoration
 
 ## Navigation
 
-- Named routes (`/login`, `/register`, `/dashboard`, `/form`) defined via
-  `onGenerateRoute` in `main.dart`
-- `Navigator.pushNamed` / `Navigator.pop` for moving between screens
-- Data passed between screens via route `arguments` (email from Login is
-  read on Dashboard via `settings.arguments`)
+The application demonstrates:
 
-## Widgets Used (10+)
+- Navigator.push
+- Navigator.pop
+- Named routes
+- Passing data between screens
 
-ElevatedButton, TextButton, OutlinedButton, IconButton, FloatingActionButton,
-Card, ListTile, Divider, AlertDialog, SimpleDialog, custom Dialog,
-BottomSheet, SnackBar, MaterialBanner, TextField, TextFormField, Form.
+Routes:
+
+- /login
+- /register
+- /dashboard
+- /form
+
+## Forms and Validation
+
+Validation includes:
+
+- Required fields
+- Email validation
+- Password length validation
+- Confirm password matching
+
+## Dialogs and Feedback
+
+Implemented:
+
+- AlertDialog
+- SimpleDialog
+- Custom Dialog
+- BottomSheet
+- SnackBar
+- SnackBar action
+- MaterialBanner
+
+## Tutorials and Resources
+
+### YouTube Search Terms
+
+- Flutter Material Design tutorial
+- Flutter Material 3
+- Flutter buttons and cards
+- Flutter dialogs and snackbars
+- Flutter forms tutorial
+
+### Recommended Channels
+
+- Flutter Official
+- The Flutter Way
+- Marcus Ng
+
+### Official Documentation
+
+https://docs.flutter.dev/ui/widgets/material
+
+## Screenshots
+
+Screenshots are included as evidence of the implemented Material Design
+components and application screens.
+
+### Login Screen
+
+![Login Screen](screenshots/login.png)
+
+### Register Screen
+
+![Register Screen](screenshots/register.png)
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### Buttons
+
+![Material Buttons](screenshots/buttons.png)
+
+### Cards and ListTiles
+
+![Cards and ListTiles](screenshots/cards-listtiles.png)
+
+### Form Validation
+
+![Form Validation](screenshots/form-validation.png)
+
+### AlertDialog
+
+![AlertDialog](screenshots/alert-dialog.png)
+
+### SimpleDialog
+
+![SimpleDialog](screenshots/simple-dialog.png)
+
+### Custom Dialog
+
+![Custom Dialog](screenshots/custom-dialog.png)
+
+### BottomSheet
+
+![BottomSheet](screenshots/bottom-sheet.png)
+
+### SnackBar
+
+![SnackBar](screenshots/snackbar.png)
+
+### MaterialBanner
+
+![MaterialBanner](screenshots/material-banner.png)
+
+### Navigation and Data Passing
+
+![Navigation](screenshots/navigation.png)
 
 ## How to Run
 
 ```bash
 flutter pub get
 flutter run
-```
-
-Flow: Login → (Register optional) → Dashboard → Form.
