@@ -205,7 +205,7 @@ components and application screens.
 
 ### SnackBar
 
-<img width="294" height="639" alt="image" src="https://github.com/user-attachments/assets/62956008-f634-40c8-8d86-8994cccf61b2" />
+<img width="285" height="49" alt="image" src="https://github.com/user-attachments/assets/0ac53fe5-df23-4898-8d1b-bac3e8971978" />
 
 ### MaterialBanner
 
