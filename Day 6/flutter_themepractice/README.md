@@ -52,13 +52,13 @@ Defined in `theme/app_colors.dart`:
 
 ## Screenshots
 
-Light Mode
+### Light Mode
 <img width="346" height="750" alt="image" src="https://github.com/user-attachments/assets/112ea50f-c34c-48b7-a9b6-3efde50bdeda" />
 
-Dark Mode
+### Dark Mode
 <img width="343" height="754" alt="image" src="https://github.com/user-attachments/assets/bd4c0dcd-0bb4-4b89-8ab6-f4010b34a2a1" />
 
-System Mode
+### System Mode
 <img width="348" height="739" alt="image" src="https://github.com/user-attachments/assets/e8c98e5c-0a58-40e5-955f-b7dd96659cc7" />
  
 
