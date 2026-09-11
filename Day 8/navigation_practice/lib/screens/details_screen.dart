@@ -5,6 +5,23 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    final name = ModalRoute.of(context)!.settings.arguments as String? ?? 'Guest';
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Details')),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('Hello, $name!', style: const TextStyle(fontSize: 20)),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context, 'Done'),
+              child: const Text('Go Back'),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

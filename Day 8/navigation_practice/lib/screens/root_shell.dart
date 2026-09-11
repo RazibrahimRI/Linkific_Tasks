@@ -43,7 +43,7 @@ class _RootShellState extends State<RootShell> {
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.indigo),
+              decoration: BoxDecoration(color: Colors.purpleAccent),
               child: Text('Menu', style: TextStyle(color: Colors.white, fontSize: 24)),
             ),
             ListTile(title: const Text('Home'), onTap: () => _selectTab(0)),
@@ -58,9 +58,6 @@ class _RootShellState extends State<RootShell> {
         children: List.generate(_tabs.length, (index) {
           return Navigator(
             key: _navigatorKeys[index],
-            // This nested Navigator handles its tab's own route table.
-            // Home tab pushes '/details' THROUGH this, not the root —
-            // that's what keeps the bottom nav bar visible.
             onGenerateRoute: (settings) {
               if (settings.name == '/details') {
                 return MaterialPageRoute(
