@@ -106,10 +106,26 @@ Hero animations surfaced a similar decision point: the default straight-line fli
 
 
 ## Explicit Animations
+### Before
+<img width="274" height="593" alt="image" src="https://github.com/user-attachments/assets/ba6b61b9-3e70-4ebd-bd2e-fe5139ba9121" />
+### After
+<img width="275" height="604" alt="image" src="https://github.com/user-attachments/assets/01e0ec20-7eca-4ee8-ac9d-62f80f88440e" />
 
-### Hero Animation
 
-### Animated Login Screen , Loading Animation , Animated List
+## Hero Animation
+### Before
+<img width="270" height="604" alt="image" src="https://github.com/user-attachments/assets/5873ea9f-b08e-4a3e-9310-05ad7c350380" />
+### After
+<img width="273" height="604" alt="image" src="https://github.com/user-attachments/assets/1f84a1f3-b3ec-401b-a7ed-b5affbb313c3" />
+
+
+## Animated Login Screen , Loading Animation , Animated List
+<img width="272" height="593" alt="image" src="https://github.com/user-attachments/assets/49ed5c55-e433-41a1-afba-3dcf4ba850ab" />
+<img width="268" height="597" alt="image" src="https://github.com/user-attachments/assets/4433634e-69de-480c-89d4-22712aecd9db" />
+<img width="272" height="600" alt="image" src="https://github.com/user-attachments/assets/948f8ed3-1679-4d72-ac29-c32c4bebb226" />
+
+
+
 
 
 # Repository Structure
