@@ -93,19 +93,19 @@ Hero animations surfaced a similar decision point: the default straight-line fli
 
 # Screenshots
 
-### Implicit Animations
+## Implicit Animations
 
-# Before
+### Before
 <img width="279" height="598" alt="image" src="https://github.com/user-attachments/assets/5fbba5ca-ccec-4110-b72b-30ec6a5e3ed4" />
 <img width="272" height="608" alt="image" src="https://github.com/user-attachments/assets/a2972110-40ce-4efe-87ab-c7fca3e74112" />
 
-# After
+### After
 <img width="277" height="603" alt="image" src="https://github.com/user-attachments/assets/fcc7777e-d7c5-4330-a39a-63ab183a77a3" />
 <img width="273" height="605" alt="image" src="https://github.com/user-attachments/assets/63b747c1-23e1-4d01-b899-b0f9e2814409" />
 
 
 
-### Explicit Animations
+## Explicit Animations
 
 ### Hero Animation
 
