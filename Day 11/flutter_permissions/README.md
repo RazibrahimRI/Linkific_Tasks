@@ -77,11 +77,12 @@ A second, smaller learning was that `shouldShowRequestRationale` is Android-only
 ## Home Screen — Camera / Location / Storage buttons
 <img width="334" height="745" alt="image" src="https://github.com/user-attachments/assets/924f8d0e-e103-4eab-b9e5-3d4b483d1c2a" />
 
-## Granted messages
+## Granted message
 <img width="348" height="754" alt="image" src="https://github.com/user-attachments/assets/03507c0f-483b-4867-b818-ce42a6b394aa" />
-<img width="340" height="746" alt="image" src="https://github.com/user-attachments/assets/25695af1-30ec-4b85-894c-573d9d30ba76" />
-<img width="344" height="760" alt="image" src="https://github.com/user-attachments/assets/089d2887-a088-481f-8887-85ee7fa45e1a" />
 
+## Permanently Denied message
+
+<img width="346" height="757" alt="image" src="https://github.com/user-attachments/assets/900674d3-9a92-409b-aa3c-cc2e21d85fd0" />
 
 
 # Repository Structure
