@@ -137,6 +137,7 @@ Before marking Day 14 as fully completed:
 ### Dark mode
 
 <img width="349" height="754" alt="image" src="https://github.com/user-attachments/assets/0eaf0214-3e71-49a2-9b1b-fca6926a5303" />
+
 ### Clearing all preferences
 
 <img width="336" height="735" alt="image" src="https://github.com/user-attachments/assets/b69346d8-b269-4002-9eae-586f6c620134" />
