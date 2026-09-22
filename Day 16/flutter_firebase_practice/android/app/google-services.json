@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "140029064852",
+    "project_id": "linkificproject1",
+    "storage_bucket": "linkificproject1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140029064852:android:8a8b1628194baf4d02e681",
+        "android_client_info": {
+          "package_name": "com.example.flutter_firebase_practice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140029064852-5k3cpbmo50lhusl25j23i8sauspcn6ek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARNPB30E2FjNZzCbrd1CwkwkgE3bPg-pE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140029064852-5k3cpbmo50lhusl25j23i8sauspcn6ek.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "140029064852-jn3p230ugfam5nqnr125k3mkqn33f9k5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterFirebasePractice"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
