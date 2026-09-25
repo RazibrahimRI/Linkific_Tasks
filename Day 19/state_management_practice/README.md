@@ -93,14 +93,14 @@ The app compiles and runs end-to-end with `HomeScreen` navigating to all four sc
 
 * [x] `flutter pub get` completes with no errors
 * [x] App runs and `HomeScreen` navigates to all four screens
-* [ ] Counter increments/decrements correctly via all four consumption methods
-* [ ] Todo add/toggle/delete confirmed working
-* [ ] Cart add-item and running total confirmed working
-* [ ] Auth login/logout confirmed working
-* [ ] FutureProvider transitions from `'Loading...'` to `'Loaded data'` after 2 seconds
-* [ ] StreamProvider value increments every second on screen
+* [x] Counter increments/decrements correctly via all four consumption methods
+* [x] Todo add/toggle/delete confirmed working
+* [x] Cart add-item and running total confirmed working
+* [x] Auth login/logout confirmed working
+* [x] FutureProvider transitions from `'Loading...'` to `'Loaded data'` after 2 seconds
+* [x] StreamProvider value increments every second on screen
 * [x] ProxyProvider greeting reachable and correct (fixed via `Greeting` wrapper type)
-* [ ] No debug `print`/test calls left in `main.dart` in the final version
+* [x] No debug `print`/test calls left in `main.dart` in the final version
 
 ## Repository Structure
 
