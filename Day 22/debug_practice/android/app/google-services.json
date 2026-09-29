@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "699511959796",
+    "project_id": "debug-practice",
+    "storage_bucket": "debug-practice.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699511959796:android:04865de3fe0947db616ea1",
+        "android_client_info": {
+          "package_name": "com.example.debug_practice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTy001EnIDpszYEYoGpE8_qqZamnilWAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
