@@ -112,9 +112,11 @@ Business logic has to be in plain functions or classes to be unit tested. That i
 
 ## Current Verification Status
 
-* **Tests run:** [ADD number] tests, [ADD all passed / number failed]
-* **Command:** `flutter test` output screenshot: [ADD]
-* **IDE run:** screenshot: [ADD]
+* **Tests run:** 16 tests, all passed
+* **Command:** `flutter test` output screenshot: <img width="474" height="158" alt="image" src="https://github.com/user-attachments/assets/dcc545d3-cc0a-4112-adbc-6f9f617db20a" />
+
+* **IDE run:** screenshot: <img width="1898" height="721" alt="image" src="https://github.com/user-attachments/assets/ec6ebd7b-1b71-4ca6-bcab-7b80441ca35f" />
+
 * **Coverage:** 98.9% of lines hit (86 of 87), from `coverage/lcov.info`
 * **Not fully covered:** `lib/calculator.dart` line 29 (the invalid-input throw in `discountedPrice`)
 * **Not in the report:** `main.dart` and the other Day 22 screens, because no test imports them
