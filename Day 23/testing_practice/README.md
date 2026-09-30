@@ -60,7 +60,7 @@ Integration tests were explained only. None were written, as the task does not a
 
 ## Application Tested
 
-### debug_practice (from Day 22) plus small practice code
+### testing_practice (reuses BasicsScreen and FastScreen from Day 22 debug_practice)
 
 ## Test Files
 
@@ -119,7 +119,7 @@ Business logic has to be in plain functions or classes to be unit tested. That i
 
 * **Coverage:** 98.9% of lines hit (86 of 87), from `coverage/lcov.info`
 * **Not fully covered:** `lib/calculator.dart` line 29 (the invalid-input throw in `discountedPrice`)
-* **Not in the report:** `main.dart` and the other Day 22 screens, because no test imports them
+* **Not in the report:** `main.dart`, because it starts the app and no test imports it
 
 ## Final Verification Checklist
 
