@@ -230,8 +230,8 @@ fitness_tracker/
 
 | | | |
 |---|---|---|
-| <img src="docs/screenshots/01-signup.jpg" width="200"><br>Sign Up | <img src="docs/screenshots/02-progress-charts.jpg" width="200"><br>Progress Charts | <img src="docs/screenshots/03-goals.jpg" width="200"><br>Goals |
-| <img src="docs/screenshots/04-water-tracker.jpg" width="200"><br>Water Tracker | <img src="docs/screenshots/05-bmi-calculator.jpg" width="200"><br>BMI Calculator | |
+| <img width="342" height="719" alt="Screenshot 2026-10-05 185828" src="https://github.com/user-attachments/assets/c694fbc7-4805-4c37-b363-809319a6117d" />Sign Up |<img width="346" height="758" alt="Screenshot 2026-10-05 185426" src="https://github.com/user-attachments/assets/73aefb14-b9fa-4689-8519-d340f4bec8be" /> Progress Charts | <img width="346" height="741" alt="Screenshot 2026-10-05 185432" src="https://github.com/user-attachments/assets/0e53ca90-0e04-4db3-8616-579019e3d75f" />Goals |
+| <img width="348" height="761" alt="Screenshot 2026-10-05 185438" src="https://github.com/user-attachments/assets/46c707f8-67a6-4312-b0d5-2bb1f4ac1077" />Water Tracker | <img width="336" height="742" alt="Screenshot 2026-10-05 185740" src="https://github.com/user-attachments/assets/bc371470-c4b0-4444-a39e-804984248fc6" />BMI Calculator | |
 
 ## Resources
 
