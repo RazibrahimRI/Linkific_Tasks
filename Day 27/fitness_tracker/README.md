@@ -234,9 +234,9 @@ fitness_tracker/
 
 ## Screenshots
 
-| | | |
-|---|---|---|
+|<img width="335" height="754" alt="image" src="https://github.com/user-attachments/assets/840ae5d9-0e56-4516-be63-70c9af7f9ec2" />|<img width="337" height="735" alt="image" src="https://github.com/user-attachments/assets/ec4bbb70-ee42-43cb-b2e8-2c59d0991e05" />|<img width="333" height="748" alt="image" src="https://github.com/user-attachments/assets/be3c70b5-0a49-4593-b84f-6d970b8f1db5" />|
 | Add Workout (validation error) | Workout List | Edit Workout |
+|<img width="343" height="737" alt="image" src="https://github.com/user-attachments/assets/c7106bdd-3fa0-47b6-8407-6b44e390fa72" />|<img width="338" height="728" alt="image" src="https://github.com/user-attachments/assets/01738c4f-47c0-46d5-aafc-72f835062e7f" />|<img width="1853" height="782" alt="image" src="https://github.com/user-attachments/assets/72e0d753-50ba-4ea7-b191-145bac97b9b6" />|
 | Water Tracker (with delete) | Progress Charts | Cloud Firestore console |
 
 ## Resources
