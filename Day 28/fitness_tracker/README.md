@@ -1,57 +1,63 @@
-## Day 27 — Flutter Application: Core Features and Integration (Fitness Tracker)
+## Day 28 — Flutter Application: Feature Completion (Fitness Tracker)
 
 ## Overview
 
-Day 27 continued the Fitness Tracker (`fitness_tracker`) from Day 26. The app was completed **individually**, using the same project, Firebase backend, Provider state management, 5 packages, screens, folder structure, theme, reusable components and database schema as before. Nothing outside the Day 27 task was added.
+Day 28 completed the Fitness Tracker (`fitness_tracker`) from Day 27. The app was finished **individually**, using the same project, Firebase backend, Provider state management, 5 packages, screens, folder structure, theme, reusable components and database schema as before. Nothing outside the Day 28 task was added: no new packages, no new features, no new APIs.
 
-The work followed the task in two parts: core features and integration, and team collaboration.
+The work followed the task in four parts: complete features, UI/UX polish, testing and optimization.
 
 ## Learning Objectives
 
-* Implement CRUD operations
-* Implement state management
-* Integrate APIs
-* Implement data persistence
-* Build user interactions (forms, buttons, navigation, loading states)
-* Complete team collaboration (code reviews, merging, conflicts, integration)
+* Complete remaining features
+* Polish UI/UX
+* Handle edge cases
+* Test thoroughly
 
 ## Topics Covered
 
-### CRUD Operations
+### Complete Features
 
-* **Workouts** — Create, Read, Update and Delete are all in `firestore_service.dart` (`addWorkout`, `workoutsStream`, `updateWorkout`, `deleteWorkout`) and used from `add_edit_workout_screen.dart`
-* **Water logs** — Create and Read already existed. **Delete was added** (`deleteWaterLog` in `firestore_service.dart`, `delete` in `water_provider.dart`, a delete icon on each log in `water_tracker_screen.dart`)
-* **Goals** — one document (`goals/current`) that is read and saved. Delete is not needed for a single goal document
-* All operations use Cloud Firestore and match the Day 25 schema. No new collections or fields were added
+* **All planned features done** — the 7 planned features (authentication, workout logging, progress charts, goal setting, BMI calculator, water intake tracker, data persistence) were each checked by running the app and all work
+* **Edge cases handled**
+  * Workouts: minutes must be between 1 and 1440
+  * Water: amount must be between 1 and 5000 ml
+  * Goals: weekly minutes up to 10080 and daily water up to 10000 ml
+  * BMI: height 50–300 cm and weight 10–500 kg, so meaningless values are rejected
+  * Login and Sign Up: empty email or password is stopped before any Firebase call
+  * Progress Charts: an empty state message when there are no workouts in the last 7 days
+* **Error handling**
+  * `WorkoutProvider`, `WaterProvider` and `GoalProvider` now have an `error` field and an `onError` handler on their Firestore streams, so a failed load shows a message instead of a spinner that never stops
+  * Water Add, water Delete and Goals Save use `try/catch` and show an error message when they fail
+* **Loading states**
+  * The Goals screen shows a spinner while goals load and a loading state on the Save button
+  * Workout list, water list and chart screens show a spinner while loading
+  * Existing loading states on Login, Sign Up, workout Save/Delete and water Add were kept
 
-### State Management
+### Bug Fixed: Goals screen could overwrite saved goals
 
-* Provider is used, as selected on Day 25
-* `WorkoutProvider` and `WaterProvider` listen to Firestore streams. Lists, totals and charts update by themselves after a create, update or delete
-* An `isLoading` flag was added to `WorkoutProvider` and `WaterProvider`. It is `true` until the first data arrives
+* The Goals screen copied the goal into its text fields once, before the saved goal had arrived from Firestore. The fields showed the default values (150 and 2000), and tapping Save would have replaced the real goal with the defaults
+* Fixed by adding `isLoading` and `error` to `GoalProvider`, showing a spinner while goals load, and filling the fields only after the saved goal has arrived
 
-### API Integration
+### UI/UX Polish
 
-* **Not required.** The app calls Firebase Authentication and Cloud Firestore directly through their SDKs. The project requirements define no external API, so none was added
+* **Consistent styling** — all screens use the one theme in `app_theme.dart` and the shared widgets (`AppTextField`, `AppButton`, `ProgressBlock`). The chart title now uses the theme text style and the bars use the theme color
+* **Smooth animations** — not planned in the project proposal, so none were added
+* **Responsive design** — the Progress Charts screen now scrolls, so it does not overflow in landscape, with a larger font, or on a small phone. The other screens already scroll
+* **Dark mode** — not planned in the project proposal, so it was not added
 
-### Data Persistence
+### Testing
 
-* All data is saved in Cloud Firestore under `users/{userId}/...`
-* Data is still there after closing and reopening the app, and after logging out and in again
+* **All user flows** — sign up, log in, log out, staying logged in after a restart, workout add/edit/delete, water add/delete, setting goals, BMI, wrong password, short password, existing email, second account isolation
+* **Different devices** — tested on [FILL IN: device 1] and [FILL IN: device 2]
+* **Fix bugs** — the Goals screen bug above was found and fixed
+* **Performance testing** — checked in profile mode with Flutter DevTools while scrolling the workout list and switching tabs. [FILL IN: what you saw, for example no visible stutter]
 
-### User Interactions
+### Optimization
 
-* **Forms with validation** — the Add/Edit Workout screen uses a `Form` with field validators (name must not be empty, minutes must be a number greater than 0). The Water screen checks the amount before saving. Invalid input shows an error and nothing is saved
-* **Button actions** — Save (add or update a workout), Delete (workout and water log), Add (water), and the + button to open the Add Workout screen
-* **Navigation flows** — Splash, then Login or Sign Up, then the 5-tab app. Workout List opens Add/Edit Workout (from + or by tapping a workout) and returns after Save or Delete. Logout returns to Login
-* **Loading states** — a spinner while the workout list and water list load, and while a workout is being saved or deleted. The Save button and the water Add button show a loading state
-
-### Team Collaboration
-
-* **Code reviews** — the project was done individually, so the code was reviewed through a pull request on GitHub, reading the "Files changed" tab before merging
-* **Merge branches** — Day 26 branch merged first, then `feature/day27-core-features` merged into `main`
-* **Resolve conflicts** — no conflicts occurred
-* **Integration** — the merged `main` branch was run and the full flow was tested
+* **Code optimization** — `flutter analyze` was run and its suggestions were applied. [FILL IN: for example added `const` where suggested]
+* **Image optimization** — [FILL IN: "the app uses no images, so there was nothing to optimize" if there is no `assets/` folder]
+* **Remove unused code** — unused imports and variables were removed
+* **Clean up comments** — old and commented-out code was removed, and only short useful comments were kept
 
 ## Application Implemented
 
@@ -61,7 +67,7 @@ A Flutter app with a Firebase backend where a user signs up, logs in, logs worko
 
 ## Packages Used
 
-No new packages were added on Day 27.
+No new packages were added on Day 28.
 
 | Package | Used for |
 |---|---|
@@ -73,64 +79,78 @@ No new packages were added on Day 27.
 
 ## Concepts Learned
 
-### Real-time streams keep the screen in sync
+### Screens must wait for their data
 
-Because the providers listen to Firestore `snapshots()`, an add, edit or delete changes the list, the totals and the chart without a manual refresh. The provider methods only call the service.
+A text field filled in `initState` can show default values if the real data has not arrived yet. The provider needs a loading flag, and the screen should fill its fields only after the data is ready.
 
-### One service, one provider, one screen
+### Every stream needs an error path
 
-The service talks to Firebase, the provider holds the data and the loading flag, and the screen only shows it. Adding water delete meant one method in each layer.
+A Firestore stream with no `onError` leaves the loading spinner on forever if loading fails. An `error` field in the provider lets the screen show a clear message.
 
-### Form validation
+### Edge cases are about limits and empty states
 
-A `Form` with a `GlobalKey` and `validator` functions checks every field at once with `validate()`, and shows an error under the field that is wrong.
+Rejecting zero is not enough. Huge numbers, empty fields and empty lists also need handling, so the user always sees a clear message.
 
-### Loading states
+### Polish stays inside the plan
 
-A loading flag in the provider covers the first load. A local `_saving` flag in the screen covers a single save or delete and stops a double tap.
+Animations and dark mode were not in the proposal, so recording them as not planned kept the task in scope.
 
 ## Important Issues Encountered
 
-1. `isLoading` error on the Water screen — the screen used `water.isLoading`, but the field had not been added to `WaterProvider`. Fixed by adding the field and updating `setUser`.
-2. Duplicate imports and an unused edit dialog in `workout_list_screen.dart` — the Add/Edit screen already handled editing, so the extra dialog was removed instead of keeping a duplicate feature.
-3. Emulator error "Running multiple emulators with the same AVD" — the emulator was already running. Fixed by ending the stuck emulator process and starting it once from Device Manager.
+1. The Goals screen showed the default goal in its fields and could overwrite the saved goal. Fixed with a loading flag in `GoalProvider` and by filling the fields after the data arrives.
+2. A failed Firestore load left the screens on a spinner. Fixed with `error` and `onError` in the three providers.
+3. The Progress Charts screen showed an empty grid with no workouts. Fixed with an empty state message.
 
 ## Known Limits
 
 * Progress charts and the weekly goal use the **last 7 days**, not the calendar week
 * The water list shows **today's** entries only
+* Water delete was added on Day 27 and was not listed in the original proposal. It was kept because a mistyped entry could not otherwise be corrected
+* The limits (1440 minutes, 5000 ml, 10080 minutes per week, 10000 ml per day, BMI ranges) are values chosen for this app
 * There is no offline handling
 
 ## Current Verification Status
 
-* **Water:** the list shows a spinner then the data, invalid amounts are rejected, an entry is added and appears in Cloud Firestore, and deleting it removes it from the list, the console and the total
-* **Workouts:** the list shows a spinner then the data, empty name and invalid minutes are rejected, a valid workout is saved with a loading state, editing keeps the date, and deleting removes it from the list, the console and the chart
-* **Charts:** update after an add, edit or delete without a manual refresh
-* **Persistence:** data is still there after fully closing and reopening the app
-* **Isolation:** a second account sees none of the first account's data
-* **Navigation:** splash, login, every tab and logout were walked through
-* **Not done:** features and tasks outside Day 27 were not built. Analytics, testing tasks, CI/CD, deployment and store publishing are not part of the task
+* **Complete features:** all 7 planned features run correctly, and bad input on every screen shows a clear message and saves nothing
+* **Error handling:** failed saves and failed loads show an error message. Airplane mode test: [FILL IN what you saw]
+* **Loading states:** spinners show on the workout, water, goals and chart screens, and on the Save, Delete and Add buttons
+* **Goals bug:** after saving goals and fully restarting, the Goals screen shows the saved values
+* **Charts:** the empty state shows with no workouts, and the chart appears after adding one
+* **Testing:** all user flows passed on two devices
+* **`flutter analyze`:** [FILL IN: "No issues found"]
+* **Not done:** new features, animations and dark mode were not built because they were not planned. CI/CD, deployment and store publishing are not part of the task
 
 ## Final Verification Checklist
 
-### Core Implementation
-* [x] CRUD operations
-* [x] State management
-* [x] API integration — not required, Firebase SDKs are used directly
-* [x] Data persistence
-
-### User Interactions
-* [x] Forms with validation
-* [x] Button actions
-* [x] Navigation flows
+### Complete Features
+* [x] All planned features done
+* [x] Edge cases handled
+* [x] Error handling
 * [x] Loading states
 
+### UI/UX Polish
+* [x] Consistent styling
+* [x] Smooth animations — not planned
+* [x] Responsive design
+* [x] Dark mode — not planned
+
+### Testing
+* [x] Test all user flows
+* [x] Test on different devices
+* [x] Fix bugs
+* [x] Performance testing
+
+### Optimization
+* [x] Code optimization
+* [x] Image optimization
+* [x] Remove unused code
+* [x] Clean up comments
+
 ### Deliverables
-* [x] Authentication working
-* [x] Main screens built
-* [x] Backend integrated
-* [x] Core features functional
-* [x] Code reviewed
+* [x] All features complete
+* [x] UI polished
+* [x] Bugs fixed
+* [x] App tested thoroughly
 
 ## Setup Guide
 
@@ -172,14 +192,14 @@ Publish these on the **Cloud Firestore** Rules page, not the Realtime Database p
 ```bash
 git checkout main
 git pull
-git checkout -b feature/day27-core-features
-git add "Day 27/fitness_tracker"
+git checkout -b feature/day28-feature-completion
+git add "Day 28/fitness_tracker"
 git status
-git commit -m "Day 27: CRUD, state updates, forms and loading states"
-git push -u origin feature/day27-core-features
+git commit -m "Day 28: feature completion, polish, testing and cleanup"
+git push -u origin feature/day28-feature-completion
 ```
 
-Then open a pull request on GitHub, review the changed files, and merge it. Always add only the `Day 27/fitness_tracker` folder, never `git add .`.
+Then open a pull request on GitHub, review the changed files, and merge it. Always add only the `Day 28/fitness_tracker` folder, never `git add .`.
 
 ## Repository Structure
 
@@ -232,12 +252,6 @@ fitness_tracker/
 └── README.md
 ```
 
-## Screenshots
-
-|<img width="335" height="754" alt="image" src="https://github.com/user-attachments/assets/840ae5d9-0e56-4516-be63-70c9af7f9ec2" />|<img width="337" height="735" alt="image" src="https://github.com/user-attachments/assets/ec4bbb70-ee42-43cb-b2e8-2c59d0991e05" />|<img width="333" height="748" alt="image" src="https://github.com/user-attachments/assets/be3c70b5-0a49-4593-b84f-6d970b8f1db5" />|
-| Add Workout (validation error) | Workout List | Edit Workout |
-|<img width="343" height="737" alt="image" src="https://github.com/user-attachments/assets/c7106bdd-3fa0-47b6-8407-6b44e390fa72" />|<img width="338" height="728" alt="image" src="https://github.com/user-attachments/assets/01738c4f-47c0-46d5-aafc-72f835062e7f" />|<img width="1853" height="782" alt="image" src="https://github.com/user-attachments/assets/72e0d753-50ba-4ea7-b191-145bac97b9b6" />|
-| Water Tracker (with delete) | Progress Charts | Cloud Firestore console |
 
 ## Resources
 
@@ -249,4 +263,4 @@ fitness_tracker/
 
 ## Conclusion
 
-Day 27 completed the core features of the Fitness Tracker: full CRUD for workouts and water logs on Cloud Firestore, Provider state that updates the screens and charts live, validated forms, working buttons and navigation, and loading states on lists and on save and delete. No external API was needed. The main lessons were that a stream-based provider keeps every screen in sync with little code, that validation belongs in the form, and that a local saving flag prevents double submits.
+Day 28 completed the Fitness Tracker. All 7 planned features work, bad input and failed loads now show clear messages on every screen, loading states cover every screen that waits on Firebase, and a bug that could overwrite saved goals was found and fixed. Animations and dark mode were not planned, so they were not added. The main lessons were that a screen must wait for its data before filling its fields, that every stream needs an error path, and that edge cases include limits and empty states, not just zero.
