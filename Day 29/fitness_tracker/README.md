@@ -35,7 +35,7 @@ Also included: loading spinners while data loads or saves, and error messages wh
 
 | Login | Sign Up | Workout List |
 |---|---|---|
-| ![Login](<img width="335" height="741" alt="Screenshot 2026-10-08 144626" src="https://github.com/user-attachments/assets/a2b69e46-e182-4656-9f62-50c4eb859038" />) | ![Sign Up](<img width="338" height="734" alt="Screenshot 2026-10-08 144634" src="https://github.com/user-attachments/assets/a8d34014-6b28-4570-9a96-64920638b08a" />) | ![Workout List](<img width="333" height="734" alt="Screenshot 2026-10-08 144727" src="https://github.com/user-attachments/assets/a84a0670-2f3c-4df8-8a89-61f604b48db2" />) |
+| ![Login]<img width="335" height="741" alt="Screenshot 2026-10-08 144626" src="https://github.com/user-attachments/assets/a2b69e46-e182-4656-9f62-50c4eb859038" />| ![Sign Up](<img width="338" height="734" alt="Screenshot 2026-10-08 144634" src="https://github.com/user-attachments/assets/a8d34014-6b28-4570-9a96-64920638b08a" />) | ![Workout List](<img width="333" height="734" alt="Screenshot 2026-10-08 144727" src="https://github.com/user-attachments/assets/a84a0670-2f3c-4df8-8a89-61f604b48db2" />) |
 
 | Add/Edit Workout | Progress Charts | Goals |
 |---|---|---|
