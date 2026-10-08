@@ -35,15 +35,15 @@ Also included: loading spinners while data loads or saves, and error messages wh
 
 | Login | Sign Up | Workout List |
 |---|---|---|
-| ![Login](docs/screenshots/01-login.png) | ![Sign Up](docs/screenshots/02-signup.png) | ![Workout List](docs/screenshots/03-workout-list.png) |
+| ![Login](<img width="335" height="741" alt="Screenshot 2026-10-08 144626" src="https://github.com/user-attachments/assets/a2b69e46-e182-4656-9f62-50c4eb859038" />) | ![Sign Up](<img width="338" height="734" alt="Screenshot 2026-10-08 144634" src="https://github.com/user-attachments/assets/a8d34014-6b28-4570-9a96-64920638b08a" />) | ![Workout List](<img width="333" height="734" alt="Screenshot 2026-10-08 144727" src="https://github.com/user-attachments/assets/a84a0670-2f3c-4df8-8a89-61f604b48db2" />) |
 
 | Add/Edit Workout | Progress Charts | Goals |
 |---|---|---|
-| ![Add/Edit Workout](docs/screenshots/04-add-edit-workout.png) | ![Progress Charts](docs/screenshots/05-progress-charts.png) | ![Goals](docs/screenshots/06-goals.png) |
+| ![Add/Edit Workout](<img width="341" height="750" alt="image" src="https://github.com/user-attachments/assets/5ede1356-354f-4ab1-bb4b-5075c51c6bb2" />) | ![Progress Charts](<img width="330" height="732" alt="Screenshot 2026-10-08 144755" src="https://github.com/user-attachments/assets/9729447d-ce1e-4358-81a8-7804819725ec" />) | ![Goals](<img width="331" height="728" alt="Screenshot 2026-10-08 144804" src="https://github.com/user-attachments/assets/dce8873b-f29a-4820-9352-e140550e3f67" />) |
 
 | Water Tracker | BMI Calculator |
 |---|---|
-| ![Water Tracker](docs/screenshots/07-water-tracker.png) | ![BMI Calculator](docs/screenshots/08-bmi-calculator.png) |
+| ![Water Tracker](<img width="343" height="726" alt="Screenshot 2026-10-08 144816" src="https://github.com/user-attachments/assets/90ee742f-7a04-48d3-8905-10dfe903e653" />) | ![BMI Calculator](<img width="325" height="737" alt="Screenshot 2026-10-08 144829" src="https://github.com/user-attachments/assets/55809054-6ca4-4658-bd63-1d1898eb5df1" />) |
 
 ## Tech Stack
 
