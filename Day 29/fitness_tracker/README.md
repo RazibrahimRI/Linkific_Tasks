@@ -1,191 +1,261 @@
-## Day 27 — Flutter Application: Core Features and Integration (Fitness Tracker)
+# Fitness Tracker
 
-## Overview
+A Flutter app with a Firebase backend. A user signs up, logs workouts, sees a 7-day progress chart, sets goals, tracks daily water intake and calculates BMI. Each user sees only their own data.
 
-Day 27 continued the Fitness Tracker (`fitness_tracker`) from Day 26. The app was completed **individually**, using the same project, Firebase backend, Provider state management, 5 packages, screens, folder structure, theme, reusable components and database schema as before. Nothing outside the Day 27 task was added.
+Built individually by Razi Ibrahim (GitHub: RazibrahimRI) as part of the Linkific Flutter internship.
 
-The work followed the task in two parts: core features and integration, and team collaboration.
+## Table of Contents
 
-## Learning Objectives
+1. [Features](#features)
+2. [Screenshots](#screenshots)
+3. [Tech Stack](#tech-stack)
+4. [Architecture](#architecture)
+5. [Setup Instructions](#setup-instructions)
+6. [Running and Building](#running-and-building)
+7. [API Documentation](#api-documentation)
+8. [Input Rules](#input-rules)
+9. [Project Structure](#project-structure)
+10. [Known Limits](#known-limits)
 
-* Implement CRUD operations
-* Implement state management
-* Integrate APIs
-* Implement data persistence
-* Build user interactions (forms, buttons, navigation, loading states)
-* Complete team collaboration (code reviews, merging, conflicts, integration)
+## Features
 
-## Topics Covered
+| # | Feature | What it does |
+|---|---|---|
+| 1 | User authentication | Sign up, log in and log out with email and password. A logged-in user skips the Login screen when the app reopens |
+| 2 | Workout logging | Add, view, edit and delete a workout (name, minutes, date) |
+| 3 | Progress charts | Bar chart of workout minutes per day for the last 7 days, with an empty-state message when there are no workouts |
+| 4 | Goal setting | Set a weekly workout minutes goal and a daily water goal, and see progress against them |
+| 5 | BMI calculator | Enter height and weight to see the BMI and its category. Not saved |
+| 6 | Water intake tracker | Add water in ml, delete an entry, and see today's total against the daily goal |
+| 7 | Data persistence | Workouts, water entries and goals are saved in Cloud Firestore for each user and are still there after restarting the app |
 
-### CRUD Operations
+Also included: loading spinners while data loads or saves, and error messages when a load or save fails.
 
-* **Workouts** — Create, Read, Update and Delete are all in `firestore_service.dart` (`addWorkout`, `workoutsStream`, `updateWorkout`, `deleteWorkout`) and used from `add_edit_workout_screen.dart`
-* **Water logs** — Create and Read already existed. **Delete was added** (`deleteWaterLog` in `firestore_service.dart`, `delete` in `water_provider.dart`, a delete icon on each log in `water_tracker_screen.dart`)
-* **Goals** — one document (`goals/current`) that is read and saved. Delete is not needed for a single goal document
-* All operations use Cloud Firestore and match the Day 25 schema. No new collections or fields were added
+## Screenshots
 
-### State Management
+| Login | Sign Up | Workout List |
+|---|---|---|
+| ![Login](docs/screenshots/01-login.png) | ![Sign Up](docs/screenshots/02-signup.png) | ![Workout List](docs/screenshots/03-workout-list.png) |
 
-* Provider is used, as selected on Day 25
-* `WorkoutProvider` and `WaterProvider` listen to Firestore streams. Lists, totals and charts update by themselves after a create, update or delete
-* An `isLoading` flag was added to `WorkoutProvider` and `WaterProvider`. It is `true` until the first data arrives
+| Add/Edit Workout | Progress Charts | Goals |
+|---|---|---|
+| ![Add/Edit Workout](docs/screenshots/04-add-edit-workout.png) | ![Progress Charts](docs/screenshots/05-progress-charts.png) | ![Goals](docs/screenshots/06-goals.png) |
 
-### API Integration
-
-* **Not required.** The app calls Firebase Authentication and Cloud Firestore directly through their SDKs. The project requirements define no external API, so none was added
-
-### Data Persistence
-
-* All data is saved in Cloud Firestore under `users/{userId}/...`
-* Data is still there after closing and reopening the app, and after logging out and in again
-
-### User Interactions
-
-* **Forms with validation** — the Add/Edit Workout screen uses a `Form` with field validators (name must not be empty, minutes must be a number greater than 0). The Water screen checks the amount before saving. Invalid input shows an error and nothing is saved
-* **Button actions** — Save (add or update a workout), Delete (workout and water log), Add (water), and the + button to open the Add Workout screen
-* **Navigation flows** — Splash, then Login or Sign Up, then the 5-tab app. Workout List opens Add/Edit Workout (from + or by tapping a workout) and returns after Save or Delete. Logout returns to Login
-* **Loading states** — a spinner while the workout list and water list load, and while a workout is being saved or deleted. The Save button and the water Add button show a loading state
-
-### Team Collaboration
-
-* **Code reviews** — the project was done individually, so the code was reviewed through a pull request on GitHub, reading the "Files changed" tab before merging
-* **Merge branches** — Day 26 branch merged first, then `feature/day27-core-features` merged into `main`
-* **Resolve conflicts** — no conflicts occurred
-* **Integration** — the merged `main` branch was run and the full flow was tested
-
-## Application Implemented
-
-### fitness_tracker
-
-A Flutter app with a Firebase backend where a user signs up, logs in, logs workouts (add, edit, delete), sees a 7-day progress chart, sets goals, tracks daily water intake (add and delete) and calculates BMI. Each user sees only their own data, and data is saved in Cloud Firestore.
-
-## Packages Used
-
-No new packages were added on Day 27.
-
-| Package | Used for |
+| Water Tracker | BMI Calculator |
 |---|---|
-| `firebase_core` | Connecting the app to Firebase |
-| `firebase_auth` | User authentication |
-| `cloud_firestore` | Saving, updating, deleting and listening to data |
+| ![Water Tracker](docs/screenshots/07-water-tracker.png) | ![BMI Calculator](docs/screenshots/08-bmi-calculator.png) |
+
+## Tech Stack
+
+| Technology | Used for |
+|---|---|
+| Flutter (Dart) | The mobile app |
+| Firebase Authentication | Email and password accounts |
+| Cloud Firestore | Saving data and live updates |
 | `provider` | State management |
 | `fl_chart` | Progress charts |
+| `firebase_core` | Connecting the app to Firebase |
 
-## Concepts Learned
+The app has no server of its own. It talks to Firebase directly through the Firebase SDKs.
 
-### Real-time streams keep the screen in sync
+## Architecture
 
-Because the providers listen to Firestore `snapshots()`, an add, edit or delete changes the list, the totals and the chart without a manual refresh. The provider methods only call the service.
+The code is grouped by type inside `lib/`. Each layer has one job:
 
-### One service, one provider, one screen
+* **Screens** show data and send button taps to the providers
+* **Providers** hold the data, the loading flag and the error message, and tell the screens when something changes
+* **Services** are the only code that talks to Firebase
+* **Firebase** stores the data and sends live updates back
 
-The service talks to Firebase, the provider holds the data and the loading flag, and the screen only shows it. Adding water delete meant one method in each layer.
-
-### Form validation
-
-A `Form` with a `GlobalKey` and `validator` functions checks every field at once with `validate()`, and shows an error under the field that is wrong.
-
-### Loading states
-
-A loading flag in the provider covers the first load. A local `_saving` flag in the screen covers a single save or delete and stops a double tap.
-
-## Important Issues Encountered
-
-1. `isLoading` error on the Water screen — the screen used `water.isLoading`, but the field had not been added to `WaterProvider`. Fixed by adding the field and updating `setUser`.
-2. Duplicate imports and an unused edit dialog in `workout_list_screen.dart` — the Add/Edit screen already handled editing, so the extra dialog was removed instead of keeping a duplicate feature.
-3. Emulator error "Running multiple emulators with the same AVD" — the emulator was already running. Fixed by ending the stuck emulator process and starting it once from Device Manager.
-
-## Known Limits
-
-* Progress charts and the weekly goal use the **last 7 days**, not the calendar week
-* The water list shows **today's** entries only
-* There is no offline handling
-
-## Current Verification Status
-
-* **Water:** the list shows a spinner then the data, invalid amounts are rejected, an entry is added and appears in Cloud Firestore, and deleting it removes it from the list, the console and the total
-* **Workouts:** the list shows a spinner then the data, empty name and invalid minutes are rejected, a valid workout is saved with a loading state, editing keeps the date, and deleting removes it from the list, the console and the chart
-* **Charts:** update after an add, edit or delete without a manual refresh
-* **Persistence:** data is still there after fully closing and reopening the app
-* **Isolation:** a second account sees none of the first account's data
-* **Navigation:** splash, login, every tab and logout were walked through
-* **Not done:** features and tasks outside Day 27 were not built. Analytics, testing tasks, CI/CD, deployment and store publishing are not part of the task
-
-## Final Verification Checklist
-
-### Core Implementation
-* [x] CRUD operations
-* [x] State management
-* [x] API integration — not required, Firebase SDKs are used directly
-* [x] Data persistence
-
-### User Interactions
-* [x] Forms with validation
-* [x] Button actions
-* [x] Navigation flows
-* [x] Loading states
-
-### Deliverables
-* [x] Authentication working
-* [x] Main screens built
-* [x] Backend integrated
-* [x] Core features functional
-* [x] Code reviewed
-
-## Setup Guide
-
-### Get the packages
-
-```bash
-flutter pub get
+```mermaid
+flowchart TD
+    UI["Screens<br/>(lib/screens, lib/widgets)"] -->|"user actions"| P["Providers<br/>(lib/providers)"]
+    P -->|"calls"| S["Services<br/>(lib/services)"]
+    S -->|"sign up, log in, log out"| FA["Firebase Authentication"]
+    S -->|"read, add, update, delete"| FS["Cloud Firestore"]
+    FS -.->|"real-time streams"| S
+    S -.->|"stream data"| P
+    P -.->|"notifyListeners"| UI
+    M["Models<br/>(lib/models)"] --- P
+    M --- S
 ```
 
-### Check the code
+### App flow
 
-```bash
-flutter analyze
+```mermaid
+flowchart TD
+    A["App starts"] --> B["Splash screen"]
+    B --> C{"Logged in?"}
+    C -->|"No"| D["Login screen"]
+    D <-->|"No account? / Have an account?"| E["Sign Up screen"]
+    D -->|"login ok"| F
+    E -->|"sign up ok"| F
+    C -->|"Yes"| F["Main app: 5 tabs"]
+    F --> G["Workouts"]
+    F --> H["Charts"]
+    F --> I["Goals"]
+    F --> J["Water"]
+    F --> K["BMI"]
+    G -->|"+ button or tap a workout"| L["Add/Edit Workout screen"]
+    F -->|"Logout (top bar)"| D
 ```
 
-### Run the app
+`AuthGate` in `main.dart` decides which screen to show, so a logged-out user cannot reach any app screen.
+
+## Setup Instructions
+
+### What you need
+
+* [Flutter SDK](https://docs.flutter.dev/get-started/install)
+* Android Studio (with an Android emulator) or a real Android phone
+* A Google account for Firebase
+
+### Steps
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/RazibrahimRI/Linkific_Tasks.git
+   cd Linkific_Tasks/"Day 29"/fitness_tracker
+   ```
+
+2. **Check Flutter works**
+
+   ```bash
+   flutter doctor
+   ```
+
+3. **Create a Firebase project** at the [Firebase console](https://console.firebase.google.com).
+
+4. **Turn on Email/Password sign-in:** Build, then Authentication, then Sign-in method, then Email/Password, then Enable.
+
+5. **Create the database:** Build, then Firestore Database, then Create database.
+
+6. **Publish the security rules:** in Firestore Database, open the **Rules** tab (the Cloud Firestore one, not Realtime Database), paste the rules below and click Publish.
+
+   ```
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /users/{userId}/{document=**} {
+         allow read, write: if request.auth != null && request.auth.uid == userId;
+       }
+     }
+   }
+   ```
+
+7. **Connect the app to your Firebase project** (this regenerates `lib/firebase_options.dart` and the Android config for your project):
+
+   ```bash
+   dart pub global activate flutterfire_cli
+   flutterfire configure
+   ```
+
+8. **Get the packages**
+
+   ```bash
+   flutter pub get
+   ```
+
+9. **Check the code**
+
+   ```bash
+   flutter analyze
+   ```
+
+10. **Run the app** (see the next section).
+
+## Running and Building
+
+Run on a connected device or emulator:
 
 ```bash
 flutter run
 ```
 
-### Firestore security rules
-
-```
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /users/{userId}/{document=**} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-    }
-  }
-}
-```
-
-Publish these on the **Cloud Firestore** Rules page, not the Realtime Database page.
-
-### Git workflow
+Build a release APK for Android:
 
 ```bash
-git checkout main
-git pull
-git checkout -b feature/day27-core-features
-git add "Day 27/fitness_tracker"
-git status
-git commit -m "Day 27: CRUD, state updates, forms and loading states"
-git push -u origin feature/day27-core-features
+flutter build apk --release
 ```
 
-Then open a pull request on GitHub, review the changed files, and merge it. Always add only the `Day 27/fitness_tracker` folder, never `git add .`.
+The file is created at `build/app/outputs/flutter-apk/app-release.apk`.
 
-## Repository Structure
+Optional app bundle:
+
+```bash
+flutter build appbundle --release
+```
+
+An iOS build needs a Mac and is not set up in this project.
+
+## API Documentation
+
+The app has **no REST API and no server endpoints**. All data goes through the Firebase SDKs, called only from `lib/services/`.
+
+### Firebase Authentication
+
+| Operation | Used when |
+|---|---|
+| Create an account with email and password | The user signs up. A `users/{userId}` document is created at the same time |
+| Sign in with email and password | The user logs in |
+| Sign out | The user taps Logout |
+| Listen to the login state | The app starts (Splash screen, then `AuthGate`) |
+
+Firebase returns an error message for a wrong password, a short password or an email that is already used, and the app shows it to the user.
+
+### Cloud Firestore
+
+Every path sits under the logged-in user, so each user can only reach their own data.
+
+| Path | Fields | Operations in the app |
+|---|---|---|
+| `users/{userId}` | `email` (text), `createdAt` (date) | Create at sign up |
+| `users/{userId}/workouts/{workoutId}` | `name` (text), `durationMinutes` (number), `date` (date) | Add, read all (live stream, newest first), update, delete |
+| `users/{userId}/waterLogs/{logId}` | `amountMl` (number), `date` (date) | Add, read today's entries (live stream), delete |
+| `users/{userId}/goals/current` | `weeklyWorkoutMinutes` (number), `dailyWaterMl` (number) | Save, read (live stream) |
+
+Defaults when no goal is saved: 150 weekly workout minutes and 2000 ml of daily water.
+
+### Service methods (`lib/services/firestore_service.dart`)
+
+| Method | What it does |
+|---|---|
+| `workoutsStream()` | Live list of all workouts, newest first |
+| `addWorkout(Workout)` | Adds a workout |
+| `updateWorkout(Workout)` | Updates a workout by its id |
+| `deleteWorkout(String id)` | Deletes a workout |
+| `todayWaterStream()` | Live list of today's water entries |
+| `addWater(WaterLog)` | Adds a water entry |
+| `deleteWaterLog(String id)` | Deletes a water entry |
+| `goalStream()` | Live goal, or the defaults if none is saved |
+| `saveGoal(Goal)` | Saves the goal |
+
+### Calculated on the phone (no call)
+
+* **Progress chart:** built from the workouts of the last 7 days
+* **BMI:** weight in kg divided by height in metres squared. Categories: under 18.5 Underweight, under 25 Normal, under 30 Overweight, 30 and above Obese
+
+### Security rules
+
+Access is allowed only when the user is logged in and the `userId` in the path is their own id. The rules are listed in [Setup Instructions](#setup-instructions).
+
+## Input Rules
+
+| Screen | Rule |
+|---|---|
+| Add/Edit Workout | Name must not be empty. Minutes must be a whole number from 1 to 1440 |
+| Water Tracker | Amount must be a whole number from 1 to 5000 ml |
+| Goals | Weekly minutes from 1 to 10080. Daily water from 1 to 10000 ml |
+| BMI Calculator | Height 50 to 300 cm. Weight 10 to 500 kg |
+| Login and Sign Up | Email and password must not be empty. Firebase checks the rest |
+
+Invalid input shows a message and saves nothing.
+
+## Project Structure
 
 ```text
 fitness_tracker/
-│
 ├── android/
 ├── ios/
 ├── docs/
@@ -232,21 +302,9 @@ fitness_tracker/
 └── README.md
 ```
 
-## Screenshots
+## Known Limits
 
-|<img width="335" height="754" alt="image" src="https://github.com/user-attachments/assets/840ae5d9-0e56-4516-be63-70c9af7f9ec2" />|<img width="337" height="735" alt="image" src="https://github.com/user-attachments/assets/ec4bbb70-ee42-43cb-b2e8-2c59d0991e05" />|<img width="333" height="748" alt="image" src="https://github.com/user-attachments/assets/be3c70b5-0a49-4593-b84f-6d970b8f1db5" />|
-| Add Workout (validation error) | Workout List | Edit Workout |
-|<img width="343" height="737" alt="image" src="https://github.com/user-attachments/assets/c7106bdd-3fa0-47b6-8407-6b44e390fa72" />|<img width="338" height="728" alt="image" src="https://github.com/user-attachments/assets/01738c4f-47c0-46d5-aafc-72f835062e7f" />|<img width="1853" height="782" alt="image" src="https://github.com/user-attachments/assets/72e0d753-50ba-4ea7-b191-145bac97b9b6" />|
-| Water Tracker (with delete) | Progress Charts | Cloud Firestore console |
-
-## Resources
-
-* https://docs.flutter.dev
-* https://firebase.google.com/docs/flutter/setup
-* https://firebase.google.com/docs/firestore/security/get-started
-* https://pub.dev/packages/provider
-* https://pub.dev/packages/fl_chart
-
-## Conclusion
-
-Day 27 completed the core features of the Fitness Tracker: full CRUD for workouts and water logs on Cloud Firestore, Provider state that updates the screens and charts live, validated forms, working buttons and navigation, and loading states on lists and on save and delete. No external API was needed. The main lessons were that a stream-based provider keeps every screen in sync with little code, that validation belongs in the form, and that a local saving flag prevents double submits.
+* The progress chart and the weekly goal use the **last 7 days**, not the calendar week
+* The water list and total show **today's** entries only
+* There is no offline handling
+* The app is for Android. An iOS build is not set up
